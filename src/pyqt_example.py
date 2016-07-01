@@ -154,21 +154,21 @@ def XSILoadPlugin( in_reg ):
 def ExampleDialog_Execute():
     """a simple example dialog showing basic functionality of the pyqt for softimage plugin"""
     sianchor = Application.getQtSoftimageAnchor()
-    sianchor = Qt.wrapinstance( long(sianchor), QWidget )
+    sianchor = Qt.wrapinstance( sianchor, QWidget )
     dialog = ExampleDialog( sianchor )
     dialog.show()
     
 def ExampleSignalSlot_Execute():
     """a simple example showing softimage events triggering pyqt signals"""
     sianchor = Application.getQtSoftimageAnchor()
-    sianchor = Qt.wrapinstance( long(sianchor), QWidget )
+    sianchor = Qt.wrapinstance( sianchor, QWidget )
     dialog = ExampleSignalSlot( sianchor )
     dialog.show()
 
 def ExampleMenu_Execute():
     """a simple example showing the use of a qmenu""" 
     sianchor = Application.getQtSoftimageAnchor()
-    sianchor = Qt.wrapinstance( long(sianchor), QWidget )
+    sianchor = Qt.wrapinstance( sianchor, QWidget )
     menu = ExampleMenu( sianchor )
     
     # notice the use of QCursor and exec_ call
@@ -183,7 +183,7 @@ def ExampleUIFile_Execute():
         return False
 
     sianchor = Application.getQtSoftimageAnchor()
-    sianchor = Qt.wrapinstance( long(sianchor), QWidget )
+    sianchor = Qt.wrapinstance( sianchor, QWidget )
     uifilepath = os.path.join(plugin.OriginPath, "exampleui.ui")
     dialog = ExampleUIFile(sianchor, uifilepath)
     dialog.show()

@@ -208,6 +208,13 @@ def wrapinstance(ptr, base=None):
     """convert a pointer to a Qt class instance (PySide/PyQt compatible)"""
     if ptr is None:
         return None
+
+    if isinstance(ptr, str) or isinstance(ptr, unicode):
+        try:
+            ptr = long(ptr, 16)
+        except ValueError:
+            ptr = long(ptr, 10)
+
     ptr = long(ptr) #Ensure type
     if isPySide():
         from PySide import shiboken

@@ -85,7 +85,7 @@ SICALLBACK
 XSILoadPlugin(PluginRegistrar &reg)
 {
 	reg.PutName("QtSoftimage");
-	reg.PutVersion(0,2);
+	reg.PutVersion(0,3);
 	reg.PutAuthor("Jonathan Benayoun");
 	reg.PutURL("www.jobenayoun.com");
 	reg.RegisterCommand("getQtSoftimageAnchor");
@@ -108,12 +108,11 @@ getQtSoftimageAnchor_Init(const CRef &ref)
 	return CStatus::OK;
 }
 
-SICALLBACK 
-getQtSoftimageAnchor_Execute(const CRef &ref)
+SICALLBACK getQtSoftimageAnchor_Execute(const CRef &ref)
 {
 	Context ctxt = Context(ref);
 	QWidget *anchor = QtSoftimage::getQtSoftimageAnchor();
-	ctxt.PutAttribute("ReturnValue", CValue(ULONG(anchor)));
+	ctxt.PutAttribute("ReturnValue", CString(anchor));
 	return CStatus::OK;
 }
 
